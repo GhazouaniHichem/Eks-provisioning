@@ -16,13 +16,14 @@ module "eks" {
   source  = "terraform-aws-modules/eks/aws"
   version = "18.29.0"
   cluster_name = "myapp-eks-cluster"
-  cluster_version = "1.17"
+  cluster_version = "2.10"
   subnets = module.eks-vpc.private_subnets
   vpc_id = module.eks-vpc.vpc_id
   tags = {
     environment = "Development"
     application = "myapp"
   }
+
   worker_groups = [
     {
         instance_type = "t2.small"
