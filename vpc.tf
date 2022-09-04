@@ -6,10 +6,9 @@ provider "aws" {
 variable "vpc_cidr_block" {}
 variable "private_subnet_cidr_blocks" {}
 variable "public_subnet_cidr_blocks" {}
-
 data "aws_availability_zones" "avail_zs" {}
 
-module "vpc" {
+module "eks-vpc" {
   source  = "terraform-aws-modules/vpc/aws"
   version = "3.14.3"
   // Variables needed to configure vpc module
